@@ -7,14 +7,14 @@
         error: console.error,
         warn: console.warn
     }
-    /*
 
-    console.log = function(e) {
+
+    console.log = function (e) {
         document.querySelector(".console").insertAdjacentHTML("beforeend", "<p>" + (new Date()).toISOString() + " " + e + "</p>")
-        try{_nativeLogs.log(e)}
-        catch(e){
+        try { _nativeLogs.log(e) }
+        catch (e) {
         }
-    }*/
+    }
 
     console.success = function (e) {
         //document.querySelector(".console").insertAdjacentHTML("beforeend", "<p style='color:green'>" + (new Date()).toISOString() + " " + e + "</p>")
@@ -22,21 +22,21 @@
         catch (e) {
         }
     }
-    /*
-                console.error = function(e) {
-                    document.querySelector(".console").insertAdjacentHTML("beforeend", "<p style='color:red'>" + (new Date()).toISOString() + " " + e + "</p>")
-                    try{_nativeLogs.error(e)}
-                    catch(e){
-                    }
-    
-                }
-    
-                console.warn = function(e) {
-                    document.querySelector(".console").insertAdjacentHTML("beforeend", "<p style='color:yellow'>" + (new Date()).toISOString() + " " + e + "</p>")
-                    try{_nativeLogs.warn(e)}
-                    catch(e){
-                    }
-                }*/
+
+    console.error = function (e) {
+        document.querySelector(".console").insertAdjacentHTML("beforeend", "<p style='color:red'>" + (new Date()).toISOString() + " " + e + "</p>")
+        try { _nativeLogs.error(e) }
+        catch (e) {
+        }
+
+    }
+
+    console.warn = function (e) {
+        document.querySelector(".console").insertAdjacentHTML("beforeend", "<p style='color:yellow'>" + (new Date()).toISOString() + " " + e + "</p>")
+        try { _nativeLogs.warn(e) }
+        catch (e) {
+        }
+    }
     window.location.hash = "#/ping"
     console.log("Hello user, i'm the embed console. This is important for error reporting :)")
 
@@ -103,6 +103,7 @@
 
     recognition.onstart = function (e) {
         console.log("[Recognition] Recognition Started")
+        recognition.addEventListener("end", recognition.start)
     }
 
     recognition.onsoundstart = function () {
@@ -450,6 +451,7 @@
                     requestDelay += 250;
 
                     window.setTimeout(function () {
+                        if (window.location.hash != "#/type" && window.location.hash != "#/speech") return;
 
                         deezer.search(track.artist_name.replace("feat.", ""), track.track_name).then(function (results) {
                             console.log("[Application] Searching deezer for " + track.artist_name + " " + track.track_name)
