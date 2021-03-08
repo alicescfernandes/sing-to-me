@@ -62,7 +62,7 @@
     }
 
     //Variables
-    var base = "https://alicescfernandes.000webhostapp.com/singtome/" //window.location.origin + window.location.pathname + "php/";
+    var base = "https://alicefernandes.000webhostapp.com/singtome/" //window.location.origin + window.location.pathname + "php/";
     var audioService = "deezer"
     var height = 0;
 
